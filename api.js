@@ -19,9 +19,9 @@ app.get("/", (req, res) => {
 app.get("/countries", (req, res) => {
         pool.query("SELECT * FROM gas_emissions ORDER BY year ASC", (err, results, fields) => {
             if (err) {
-                return res.status(400).json({
+                return res.status(404).json({
                         "msg": "Whooops! Data Not found"
-                    }) //bad request
+                    }) //data not found
             }
             return res.status(200).json({ "results": results }) //getting json response containing all the results
         })
