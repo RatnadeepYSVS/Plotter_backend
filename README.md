@@ -5,4 +5,4 @@ The data is uploaded in mysql database provided [Clever-Cloud-Console](https://c
 The API can be seen [Here](https://bsky-api-proj.herokuapp.com/).   
 To start in ur own desk or laptop clone repo `git clone https://github.com/RatnadeepYSVS/blue-sky-api-proj.git`.  
 Then run the batch file `setup.bat`.     
-Then start the server by running `npm run start`.  
+Then start the server by running `npm run start `.  
