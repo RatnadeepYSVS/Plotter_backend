@@ -1,0 +1,26 @@
+{
+  "name": "bluesky",
+  "version": "1.0.0",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node api.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RatnadeepYSVS/blue-sky-api-proj.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RatnadeepYSVS/blue-sky-api-proj/issues"
+  },
+  "homepage": "https://github.com/RatnadeepYSVS/blue-sky-api-proj#readme",
+  "description": ""
+}
