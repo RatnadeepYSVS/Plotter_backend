@@ -41,7 +41,7 @@ app.get("/countries/:country", (req, res) => {
             } //declaring gases
         gases = gases ? gases.split(',').map(i => i.toLowerCase()) : [] //gases value check
         const sYear = startYear ? startYear : 1990 //startYear value check
-        const eYear = endYear ? endYear : 2014 //endYear value check
+        const eYear = endYear ? endYear : 2017 //endYear value check
         if (startYear > endYear) return res.status(400).json({ "msg": "start year must be less than end year" }) //sending json response with status code of 400 as bad query parameters were produced by the user
         pool.query("SELECT * FROM gas_emissions WHERE country=? AND year>=? AND year<=? ORDER BY year ASC", [country, sYear, eYear], (err, results, fields) => {
             if (err) {
