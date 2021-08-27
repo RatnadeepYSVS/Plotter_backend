@@ -3,7 +3,7 @@ require('dotenv').config() //dotenv to get database creds stored in .env file
 const {
     createPool
 } = require('mysql') //mysql module
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5000 //you can give any portnumber u like 
 const pool = createPool({
         "host": process.env.host, //host cred
         "user": process.env.user, //user cred
@@ -19,8 +19,8 @@ app.get("/", (req, res) => {
 app.get("/countries", (req, res) => {
         pool.query("SELECT * FROM gas_emissions ORDER BY year ASC", (err, results, fields) => {
             if (err) {
-                return res.status(404).json({
-                        "msg": "Whooops! Data Not found"
+                return res.status(500).json({
+                        "msg": "Whooops! Something has gone wrong"
                     }) //data not found
             }
             return res.status(200).json({ "results": results }) //getting json response containing all the results
@@ -45,9 +45,9 @@ app.get("/countries/:country", (req, res) => {
         if (startYear > endYear) return res.status(400).json({ "msg": "start year must be less than end year" }) //sending json response with status code of 400 as bad query parameters were produced by the user
         pool.query("SELECT * FROM gas_emissions WHERE country=? AND year>=? AND year<=? ORDER BY year ASC", [country, sYear, eYear], (err, results, fields) => {
             if (err) {
-                return res.status(400).json({ "msg": "Whoops! Invalid request..." }) //error check
+                return res.status(500).json({ "msg": "Whoops! Something has gone Wrong..." }) //error check
             } else if (results.length == 0) {
-                return res.status(400).json({ "msg": "Whoops! Invalid request query parameters..." }) //sending json response with a status code of 400 because of invalid query parameters were produced by the user
+                return res.status(400).json({ "msg": "Whoops! Bad request..." }) //sending json response with a status code of 400 because of invalid query parameters were produced by the user
             }
             if (gases.length) {
                 //checks if user has provided any gas attributes or not
